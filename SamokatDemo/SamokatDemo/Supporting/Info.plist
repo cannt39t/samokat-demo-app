@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Supporting/Fonts/SFPRODISPLAYMEDIUM.OTF</string>
+		<string>Supporting/Fonts/SFPRODISPLAYREGULAR.OTF</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need you loction to show actual products</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need you loction to show actual products</string>
+</dict>
+</plist>
