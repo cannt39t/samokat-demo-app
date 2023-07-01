@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CartView: View {
     
@@ -73,14 +74,13 @@ struct CartCellView: View {
                 ZStack {
                     R.Colors.secondaryBackground
                         .cornerRadius(6)
-                    AsyncImage(url: URL(string: cartItem.imageURL ?? "")) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .padding(8)
-                    } placeholder: {
-                        ProgressView()
-                    }
+                    WebImage(url: URL(string: cartItem.imageURL))
+                        .resizable()
+                        .placeholder {
+                            ProgressView()
+                        }
+                        .scaledToFit()
+                        .padding(8)
                 }
                 .frame(width: 62)
                 VStack(alignment: .leading, spacing: 4) {
