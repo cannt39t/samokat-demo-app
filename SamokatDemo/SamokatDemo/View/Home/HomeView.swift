@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     
@@ -24,6 +25,7 @@ struct HomeView: View {
                             .cornerRadius(10)
                             .onTapGesture {
                                 path.append(category)
+                                DishVM.shared.teg = .всеМеню
                             }
                     }
                 }
@@ -86,13 +88,12 @@ struct CategoryCell: View {
     
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: category.imageURL)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                ProgressView()
-            }
+            WebImage(url: URL(string: category.imageURL))
+                .resizable()
+                .placeholder {
+                    ProgressView()
+                }
+                .scaledToFit()
             HStack {
                 VStack(alignment: .leading) {
                     Text(category.name)

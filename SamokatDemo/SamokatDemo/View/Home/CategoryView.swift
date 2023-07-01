@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CategoryView: View {
     
     var category: EMCategory
-    @ObservedObject var viewModel: DishVM = DishVM()
+    @ObservedObject var viewModel: DishVM = DishVM.shared
     @EnvironmentObject private var alertManager: DishCartPresentManager
     @Environment(\.dismiss) private var dismiss
     
@@ -108,14 +109,13 @@ struct ProductCell: View {
                 R.Colors.secondaryBackground
                     .cornerRadius(10)
                 ZStack {
-                    AsyncImage(url: URL(string: dish.imageURL)) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .padding(12)
-                    } placeholder: {
-                        ProgressView()
-                    }
+                    WebImage(url: URL(string: dish.imageURL))
+                        .resizable()
+                        .placeholder {
+                            ProgressView()
+                        }
+                        .scaledToFit()
+                        .padding(12)
                 }
             }
             VStack {

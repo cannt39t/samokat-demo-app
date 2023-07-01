@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DishCartView: View {
     
@@ -23,14 +24,13 @@ struct DishCartView: View {
                     R.Colors.secondaryBackground
                         .cornerRadius(10)
                     ZStack {
-                        AsyncImage(url: URL(string: dish!.imageURL)) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .padding(12)
-                        } placeholder: {
-                            ProgressView()
-                        }
+                        WebImage(url: URL(string: dish!.imageURL))
+                            .resizable()
+                            .placeholder {
+                                ProgressView()
+                            }
+                            .scaledToFit()
+                            .padding(12)
                     }
                 }
                 HStack {

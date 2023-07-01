@@ -55,6 +55,7 @@ struct CartView: View {
                             .background(R.Colors.primary)
                             .cornerRadius(10)
                             .padding()
+                            .opacity(cartItems.isEmpty ? 0 : 1)
                     }
                 }
             }
